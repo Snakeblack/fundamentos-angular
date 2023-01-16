@@ -12,6 +12,11 @@ export class AppComponent {
   age = 27;
   img = 'https://www.w3schools.com/w3images/avatar2.png';
   btnDisabled = true;
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  };
   person = {
     name: 'Michael',
     age: 27,
@@ -23,7 +28,7 @@ export class AppComponent {
     width: 100,
     height: 100,
     background: 'red',
-  }
+  };
   products: Product[] = [
     {
       name: 'El mejor juguete',
