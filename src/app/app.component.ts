@@ -84,4 +84,8 @@ export class AppComponent {
   deleteName(index: number) {
     this.names.splice(index, 1);
   }
+
+  onRegister() {
+    console.log(this.register);
+  }
 }

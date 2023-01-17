@@ -1,20 +1,22 @@
 <h1>Formulario</h1>
-<form>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
   <div class="input-group">
     <label for="nombre">Nombre</label>
-    <input name="nombre" type="text" required [(ngModel)]="register.name" >
-    <p>Mensajes de error</p>
+    <input name="nombre" #inputName="ngModel" type="text" required [(ngModel)]="register.name" >
+    <p class="message-error" [class.invalid]="inputName.invalid" >Mensajes de error</p>
   </div>
   <div class="input-group">
     <label for="email">Email</label>
-    <input name="email" type="email" required [(ngModel)]="register.email" >
-    <p>Mensajes de error</p>
+    <input name="email" #inputEmail="ngModel" type="email" required [(ngModel)]="register.email" >
+    <p class="message-error" [class.invalid]="inputEmail.invalid" >Mensajes de error</p>
   </div>
   <div class="input-group">
     <label for="password">Password</label>
-    <input name="password" type="password" required [(ngModel)]="register.password" >
-    <p>Mensajes de error</p>
+    <input name="password" #inputPass="ngModel" type="password" required [(ngModel)]="register.password" >
+    <p class="message-error" [class.invalid]="inputPass.invalid" >Mensajes de error</p>
   </div>
+  <button [disabled]="myForm.invalid" type="submit" >Registrar</button>
+  <button type="button">Acción</button>
 </form>
 
 <h1>NgClass & NgStyle</h1>
@@ -51,7 +53,7 @@
   <p class="message-error" [class.invalid]="nameInput2.invalid">
     El campo es requerido
   </p>
-  <label [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Nombre</label>
+  <label>Nombre</label>
   <input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
   <p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Texto texto texto</p>
   <div class="styles">
